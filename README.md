@@ -37,7 +37,7 @@ Run the included setup script to create symlinks. This will link the configs in 
 - If you don't have a script yet, you can manually create symlinks using PowerShell:
   ```powershell
   New-Item -ItemType SymbolicLink -Path "~\AppData\Local\nvim" -Target "$PWD\nvim"
-  New-Item -ItemType SymbolicLink -Path "~\.wezterm.lua" -Target "$PWD\wezterm\wezterm.lua"
+  New-Item -ItemType SymbolicLink -Path "~\.wezterm.lua" -Target "$PWD\wezterm\.wezterm.lua"
   ```
 
 This step ensures that changes in your system's configs are tracked in the repo, and vice versa.

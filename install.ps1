@@ -1,2 +1,2 @@
-New-Item -ItemType SymbolicLink -Path ".\nvim" -Target "~\AppData\Local\nvim"
-New-Item -ItemType SymbolicLink -Path ".\wezterm\wezterm.lua" -Target "~\.wezterm.lua"
+New-Item -ItemType SymbolicLink -Path "~\AppData\Local\nvim" -Target ".\nvim"
+New-Item -ItemType SymbolicLink -Path "~\.wezterm.lua" -Target ".\wezterm\.wezterm.lua"
