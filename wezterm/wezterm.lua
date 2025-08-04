@@ -1,0 +1,1 @@
+C:/Users/Elberte/.wezterm.lua
