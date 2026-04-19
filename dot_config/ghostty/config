@@ -1,10 +1,11 @@
 # --- Theme & Appearance ---
 # Loads theme from the same directory as this config file
-config-file = ?theme.conf
+# config-file = ?theme.conf
+theme = dracula 
 
 font-family = "JetBrainsMono Nerd Font"
 font-style = Regular
-font-size = 9
+font-size = 14
 
 window-theme = ghostty
 window-padding-x = 14
