@@ -40,11 +40,13 @@ chezmoi update             # git pull && chezmoi apply
 
 ## What's managed
 
-- **Shell**: `.zshrc`, `.p10k.zsh`, `.bashrc`, `.bash_profile`
+- **Shell**: `.zshrc`, `.zshenv`, `.p10k.zsh`, `.bashrc`, `.bash_profile`
 - **Git**: `.gitconfig`, `~/.config/git/`
 - **Terminals**: `~/.config/alacritty/`, `~/.config/ghostty/`, `~/.config/fish/`
-- **Editors**: `~/.config/Code/User/{settings,keybindings,snippets}.json`, `~/.config/kate/`, `nvim/`
-- **KDE / desktop**: `~/.config/{kdeglobals,kwinrc,plasmarc,kglobalshortcutsrc,konsolerc,dolphinrc,baloofilerc}`, `~/.config/gtk-3.0/`, `~/.config/gtk-4.0/`, `.gtkrc-2.0`
+- **Editors**: `~/.config/Code/User/{settings,keybindings,mcp,snippets}.json`, `~/.config/kate/`, `~/.config/katerc`, `~/.config/katevirc`, `~/.config/kwriterc`, `~/.config/micro/`, `~/.config/nvim/` (LazyVim)
+- **KDE / Plasma**: `kdeglobals`, `kwinrc`, `kglobalshortcutsrc`, `konsolerc`, `dolphinrc`, `baloofilerc`, `kxkbrc`, `kcminputrc`, `kded5rc`, `kdedefaults/`, `kiorc`, `kactivitymanagerdrc`, `ksmserverrc`, `plasmashellrc`, `plasma-localerc`, `plasmanotifyrc`, `plasma-org.kde.plasma.desktop-appletsrc` (panel layout), `powermanagementprofilesrc`, `systemmonitorrc`, `gwenviewrc`, `spectaclerc`, `arkrc`, `bluedevilglobalrc`
+- **GTK / Qt**: `~/.config/gtk-3.0/`, `~/.config/gtk-4.0/`, `.gtkrc-2.0`, `Trolltech.conf`, `QtProject.conf`
+- **Defaults / environment**: `mimeapps.list`, `user-dirs.dirs`, `user-dirs.locale`, `trashrc`, `autostart/`, `environment.d/`, `cachyos/`, `cachyos-hello.json`, `libinput-gestures.conf`
 - **Fonts / input**: `~/.config/fontconfig/`, `.XCompose`
 - **AI tooling**:
   - Plaintext config: `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, `~/.claude/rules/`, `~/.codex/AGENTS.md`, `~/.codex/rules/`
