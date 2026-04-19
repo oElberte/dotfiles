@@ -1,0 +1,16 @@
+[General]
+LastUsedVersion=210800
+
+[MainWindow]
+MenuBar=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Pictures/Screenshots/Screenshot_20260413_170620.png
+File2[$e]=$HOME/Downloads/Screenshot_20260416_095239.png
+File3[$e]=$HOME/Downloads/Screenshot_20260416_095239(1).png
+Name1[$e]=Screenshot_20260413_170620.png
+Name2[$e]=Screenshot_20260416_095239.png
+Name3[$e]=Screenshot_20260416_095239(1).png
+
+[SideBar]
+InformationSplitterSizes=211,244

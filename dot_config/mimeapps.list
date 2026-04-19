@@ -1,0 +1,27 @@
+[Default Applications]
+x-scheme-handler/http=userapp-Zen-YO3IN3.desktop
+x-scheme-handler/https=userapp-Zen-YO3IN3.desktop
+x-scheme-handler/chrome=userapp-Zen-YO3IN3.desktop
+text/html=userapp-Zen-YO3IN3.desktop
+application/x-extension-htm=userapp-Zen-YO3IN3.desktop
+application/x-extension-html=userapp-Zen-YO3IN3.desktop
+application/x-extension-shtml=userapp-Zen-YO3IN3.desktop
+application/xhtml+xml=userapp-Zen-YO3IN3.desktop
+application/x-extension-xhtml=userapp-Zen-YO3IN3.desktop
+application/x-extension-xht=userapp-Zen-YO3IN3.desktop
+x-scheme-handler/slack=slack.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+
+[Added Associations]
+x-scheme-handler/http=userapp-Zen-YO3IN3.desktop;
+x-scheme-handler/https=userapp-Zen-YO3IN3.desktop;
+x-scheme-handler/chrome=userapp-Zen-YO3IN3.desktop;
+text/html=userapp-Zen-YO3IN3.desktop;
+application/x-extension-htm=userapp-Zen-YO3IN3.desktop;
+application/x-extension-html=userapp-Zen-YO3IN3.desktop;
+application/x-extension-shtml=userapp-Zen-YO3IN3.desktop;
+application/xhtml+xml=userapp-Zen-YO3IN3.desktop;
+application/x-extension-xhtml=userapp-Zen-YO3IN3.desktop;
+application/x-extension-xht=userapp-Zen-YO3IN3.desktop;
+x-scheme-handler/slack=slack.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop

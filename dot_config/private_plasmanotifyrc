@@ -1,0 +1,17 @@
+[Applications][code]
+Seen=true
+
+[Applications][com.mitchellh.ghostty]
+Seen=true
+
+[Applications][slack]
+Seen=true
+
+[Applications][teams-for-linux]
+Seen=true
+
+[Applications][zen]
+Seen=true
+
+[Notifications]
+PopupPosition=BottomRight
