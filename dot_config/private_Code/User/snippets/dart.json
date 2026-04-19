@@ -1,0 +1,51 @@
+{
+	// Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Dart Unit Test": {
+		"prefix": "dartTest",
+		"body": [
+			"import 'package:flutter_test/flutter_test.dart';",
+			"",
+			"void main() {",
+			"  test('$0', () {",
+			"",
+			"  });",
+			"",
+			"}",
+		],
+		"description": "Dart Test with main"
+	},
+
+	"Flutter Unit test": {
+		"prefix": "flutterTest",
+		"body": [
+			"import 'package:flutter_test/flutter_test.dart';",
+			"",
+			"void main() {",
+			"  testWidgets('$0', (WidgetTester tester) async {",
+			"",
+			"  });",
+			"",
+			"}",
+		],
+		"description": "Flutter Test with main"
+	},
+
+	"Dart AAA test": {
+		"prefix": "aaaTest",
+		"body": [
+		"test(",
+		"  'Should $0',",
+		"  () async {",
+		"    //arrange",
+		"    //act",
+		"    //assert",
+		"  },",
+		");",
+		],
+		"description": "Arrange, act and assert test"
+	},
+}

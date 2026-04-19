@@ -1,0 +1,162 @@
+{
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 18,
+  "editor.lineHeight": 1.8,
+  "editor.rulers": [80, 120],
+  "editor.fontLigatures": true,
+  "editor.wordWrap": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  // "editor.codeActionsOnSave": {
+  //  "source.organizeImports": "explicit",
+  //  "source.fixAll": "explicit",
+  //  "source.fixAll.eslint": "explicit"
+  // },
+
+  // ==========================================
+  // WORKBENCH SETTINGS
+  // ==========================================
+  "workbench.editor.labelFormat": "short",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "symbols",
+  "workbench.colorCustomizations": {
+    "list.hoverBackground": "#ffffff05",
+    "list.activeSelectionBackground": "#ffffff10",
+    "list.inactiveSelectionBackground": "#ffffff10",
+    "list.focusOutline": "#ffffff00",
+    "gitDecoration.modifiedResourceForeground": "#bd93fb",
+    "list.filterMatchBorder": "#bd93fb",
+    "tree.indentGuidesStroke": "#bd93fb",
+    "panel.border": "#bd93fb4d",
+    "sideBar.border": "#bd93fb4d",
+    "sideBarSectionHeader.background": "#bd93fb1a",
+  },
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+    },
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+
+  // ==========================================
+  // FILE MANAGEMENT
+  // ==========================================
+  "files.autoSave": "off",
+  "search.exclude": {
+    "**/.fvm": true,
+  },
+
+  // ==========================================
+  // EXPLORER SETTINGS
+  // ==========================================
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+    "package.json": ".eslint*, prettier*, tsconfig*, vite*, pnpm-lock*, bun.lockb, nest*, package-lock*",
+    "tailwind.config.js": "tailwind.config*, postcss.config*",
+    ".env.local": ".env*",
+    ".env": ".env*",
+  },
+
+  // ==========================================
+  // DEBUG SETTINGS
+  // ==========================================
+  "debug.toolBarLocation": "commandCenter",
+
+  // ==========================================
+  // LANGUAGE EXTENSIONS
+  // ==========================================
+
+  // Svelte
+  "svelte.enable-ts-plugin": true,
+
+  // Dart/Flutter
+  "dart.env": {
+    "CHROME_EXECUTABLE": "/usr/bin/google-chrome",
+  },
+  "dart.lineLength": 80,
+
+  // ESLint
+  "eslint.probe": [
+    "astro",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc",
+    "svelte",
+  ],
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "docker.extension.enableComposeLanguageServer": false,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
+  "chat.mcp.autostart": "newAndOutdated",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true,
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "yaml.schemas": {
+    "file:///c%3A/Users/Elberte/.vscode/extensions/atlassian.atlascode-3.8.18/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+  },
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "chat.tools.terminal.autoApprove": {
+    "flutter": true,
+    "npm test": true,
+    "npm run test:e2e": true,
+    "pnpm": true,
+    "npx": true,
+  },
+  "generate.template.type": "Clean Code",
+  "[dart]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+  },
+  "[kotlin]": {
+    "editor.defaultFormatter": "fwcd.kotlin",
+  },
+  "workbench.panel.showLabels": false,
+  "chat.viewSessions.orientation": "stacked",
+  "update.showReleaseNotes": false,
+  "extensions.ignoreRecommendations": true,
+  "dart.flutterSdkPath": "/home/dev/ProgramsDev/flutter",
+}

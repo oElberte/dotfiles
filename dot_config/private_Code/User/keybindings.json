@@ -1,0 +1,19 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "ctrl+alt+f a",
+        "command": "editor.action.fixAll"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    }
+]
