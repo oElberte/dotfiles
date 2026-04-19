@@ -2,23 +2,29 @@
 
 Personal CachyOS / Linux dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 
-Covers shell, terminal emulators, editors, git, KDE theming, and AI tooling config. Browser profiles, secrets, and other stateful data are intentionally **out of scope** — they need manual backup before reinstalling the OS. See [Manual backup](#manual-backup-not-managed-by-chezmoi).
+Covers shell, terminal emulators, editors, git, KDE theming, and AI tooling config. A small set of API credentials lives in the repo too, **age-encrypted** via chezmoi — see [Secrets (age encryption)](#secrets-age-encryption). Browser profiles, SSH/GPG keys, and stateful blobs stay out of scope — they need manual backup before reinstalling the OS. See [Manual backup](#manual-backup-not-managed-by-chezmoi).
 
 ## Quickstart
 
 On a fresh machine:
 
 ```bash
-# 1. Install chezmoi
-sudo pacman -S chezmoi
+# 1. Install chezmoi and age
+sudo pacman -S chezmoi age
 
-# 2. Initialize from this repo
+# 2. Restore your chezmoi age identity (see "Secrets" section)
+#    Store it off-machine; you need it before `chezmoi apply`.
+mkdir -p ~/.config/chezmoi
+# ...copy your saved key.txt to ~/.config/chezmoi/key.txt...
+chmod 0600 ~/.config/chezmoi/key.txt
+
+# 3. Initialize from this repo
 chezmoi init git@github.com:oElberte/dotfiles.git
 
-# 3. Preview what will change in $HOME
+# 4. Preview what will change in $HOME
 chezmoi diff
 
-# 4. Apply
+# 5. Apply
 chezmoi apply -v
 ```
 
@@ -40,7 +46,60 @@ chezmoi update             # git pull && chezmoi apply
 - **Editors**: `~/.config/Code/User/{settings,keybindings,snippets}.json`, `~/.config/kate/`, `nvim/`
 - **KDE / desktop**: `~/.config/{kdeglobals,kwinrc,plasmarc,kglobalshortcutsrc,konsolerc,dolphinrc,baloofilerc}`, `~/.config/gtk-3.0/`, `~/.config/gtk-4.0/`, `.gtkrc-2.0`
 - **Fonts / input**: `~/.config/fontconfig/`, `.XCompose`
-- **AI tooling config** (settings only — no credentials, no history): `~/.claude/settings*.json`, `~/.claude/CLAUDE.md`, `~/.claude/rules/`, `~/.codex/config*`, `.context7/config*`, `caveman/`, `.agents/`
+- **AI tooling**:
+  - Plaintext config: `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, `~/.claude/rules/`, `~/.codex/AGENTS.md`, `~/.codex/rules/`
+  - **Encrypted** (age): `~/.codex/auth.json`, `~/.codex/config.toml`, `~/.context7/credentials.json`
+
+## Secrets (age encryption)
+
+Chezmoi encrypts sensitive files with [age](https://github.com/FiloSottile/age) before committing. The repo only ever contains ciphertext (`encrypted_*.age`); the decrypt key lives at `~/.config/chezmoi/key.txt` on each machine and must never leave it in plaintext form.
+
+### First-time setup (new key)
+
+```bash
+mkdir -p ~/.config/chezmoi
+age-keygen -o ~/.config/chezmoi/key.txt
+chmod 0600 ~/.config/chezmoi/key.txt
+
+PUBKEY=$(age-keygen -y ~/.config/chezmoi/key.txt)
+cat > ~/.config/chezmoi/chezmoi.toml <<EOF
+encryption = "age"
+
+[age]
+  identity = "~/.config/chezmoi/key.txt"
+  recipient = "$PUBKEY"
+EOF
+```
+
+**Store `~/.config/chezmoi/key.txt` off-machine** — password manager attachment, printed QR on paper, offline USB. Without the identity file, encrypted entries cannot be decrypted on a new machine and you would have to rotate every credential.
+
+### New machine (restore identity)
+
+```bash
+mkdir -p ~/.config/chezmoi
+# Paste or copy the saved key.txt into place
+chmod 0600 ~/.config/chezmoi/key.txt
+# chezmoi.toml is NOT in the repo; recreate it with the public recipient line
+cat > ~/.config/chezmoi/chezmoi.toml <<EOF
+encryption = "age"
+
+[age]
+  identity = "~/.config/chezmoi/key.txt"
+  recipient = "$(age-keygen -y ~/.config/chezmoi/key.txt)"
+EOF
+```
+
+### Adding a new secret
+
+```bash
+chezmoi add --encrypt ~/.some/secret-file
+```
+
+The source file will land as `encrypted_<name>.age`. Commit and push as usual.
+
+### Rotating the age key
+
+If the identity file leaks: generate a new pair, re-encrypt every `encrypted_*.age` against the new recipient, force-push. Treat every credential inside the repo as leaked in the meantime — rotate them too.
 
 ## Manual backup (not managed by chezmoi)
 
@@ -134,25 +193,23 @@ xargs -r -a flatpaks.txt          flatpak install -y flathub
 
 ### AI tool state (optional)
 
-Tool *config* is in this repo. Tool *state* (tokens, conversation memory, embedding DBs) is not:
+Credentials for Codex and Context7 live in the repo, age-encrypted (see [Secrets](#secrets-age-encryption)). Everything else is stateful runtime data — snapshot separately if you want it back:
 
-| Path                | Contents                              |
-|---------------------|---------------------------------------|
-| `~/.claude.json`    | Claude Code auth / session            |
-| `~/.claude-mem/`    | Claude memory DB                      |
-| `~/.hermes/`        | Hermes data                           |
-| `~/.codex/` (state) | Codex session files (not `config*`)   |
-| `~/.context7/`      | Context7 history                      |
-| `~/.copilot/`       | GitHub Copilot token                  |
-
-Snapshot if you want it back:
+| Path               | Contents                                  |
+|--------------------|-------------------------------------------|
+| `~/.claude.json`   | Claude Code auth / session                |
+| `~/.claude-mem/`   | Claude memory DB                          |
+| `~/.hermes/`       | Hermes data                               |
+| `~/.codex/sessions`, `logs_*.sqlite*`, `memories/` | Codex runtime state |
+| `~/.copilot/`      | GitHub Copilot token                      |
 
 ```bash
-tar --zstd -cf ~/ai-state.tar.zst -C ~ \
-  .claude.json .claude-mem .hermes .copilot .context7
+tar --zstd -cf - -C ~ \
+  .claude.json .claude-mem .hermes .copilot \
+  | age -R ~/age-recipients.txt -o ~/ai-state.tar.zst.age
 ```
 
-Treat this like a secrets bundle — encrypt with age.
+Encrypt with age — these files contain session tokens.
 
 ### System files
 
@@ -178,11 +235,12 @@ Regenerable — don't back up, reinstall fresh:
 2. **Push** any pending chezmoi changes: `chezmoi cd && git push`.
 3. **Reinstall** the OS.
 4. **Packages** → pacman, AUR helper, flatpaks from the `.txt` lists.
-5. **Dotfiles** → `chezmoi init git@github.com:oElberte/dotfiles.git && chezmoi apply`.
-6. **Secrets** → decrypt `secrets.tar.age` into `$HOME`.
-7. **Browsers** → extract tarballs (browsers closed).
-8. **AI state** → decrypt and extract if kept.
-9. **Verify** → `ssh-add -l`, `gpg --list-secret-keys`, re-login to pick up shell config, open each browser.
+5. **Age identity** → restore `~/.config/chezmoi/key.txt` (0600) and recreate `~/.config/chezmoi/chezmoi.toml` — see [Secrets](#secrets-age-encryption).
+6. **Dotfiles** → `chezmoi init git@github.com:oElberte/dotfiles.git && chezmoi apply`.
+7. **SSH/GPG** → decrypt `secrets.tar.age` into `$HOME`.
+8. **Browsers** → extract tarballs (browsers closed).
+9. **AI state** → decrypt and extract if kept.
+10. **Verify** → `ssh-add -l`, `gpg --list-secret-keys`, re-login to pick up shell config, open each browser.
 
 ## License
 
