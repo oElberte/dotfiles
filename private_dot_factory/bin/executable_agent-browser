@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec "/home/dev/.factory/tools/agent-browser/bin/agent-browser" "$@"
