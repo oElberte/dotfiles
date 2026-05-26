@@ -21,7 +21,7 @@ The parent scrutiny-validator has assigned you a specific feature to review. The
 
 ## Where things live
 
-- **missionDir**: Path provided in your task prompt. Contains `mission.md`, `validation-contract.md`, `AGENTS.md`, `features.json`, `handoffs/`, `worker-transcripts.jsonl`, `services.yaml`, `library/`, `skills/`
+- **missionDir**: Path provided in your task prompt. Contains `mission.md`, `architecture.md`, `validation-contract.md`, `AGENTS.md`, `features.json`, `handoffs/`, `worker-transcripts.jsonl`, `services.yaml`, `library/`, `skills/`
 - **`repoPath`** from handoffs: implementation code.
 
 **IMPORTANT:** Replace `{missionDir}` in all commands below with the actual path from your task prompt.
@@ -69,11 +69,17 @@ jq -s --arg sid "$WORKER_SESSION_ID" '
 cat "{missionDir}/skills/<skillName>/SKILL.md"
 ```
 
+5. **Architecture doc**:
+```bash
+cat "{missionDir}/architecture.md"
+```
+
 ## 2) Code Review
 
 Review the code:
 
 - Does the implementation fully cover what the feature's `description` and `expectedBehavior` require?
+- Is the implementation aligned with the system's architecture as documented in `architecture.md`?
 - Are there any bugs, edge cases, or error states that were missed?
 - Flag specific issues with file path and line references.
 

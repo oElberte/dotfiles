@@ -10,7 +10,7 @@
       "displayName": "GPT 5.5 (low)",
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "provider": "openai",
       "noImageSupport": false
     },
     {
@@ -19,7 +19,7 @@
       "displayName": "GPT 5.5 (medium)",
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "provider": "openai",
       "noImageSupport": false
     },
     {
@@ -28,7 +28,7 @@
       "displayName": "GPT 5.5 (high)",
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "provider": "openai",
       "noImageSupport": false
     },
     {
@@ -37,28 +37,28 @@
       "displayName": "GPT 5.5 (xhigh)",
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "provider": "openai",
       "noImageSupport": false
     },
     {
       "model": "deepseek-v4-pro",
-      "id": "custom:deepseek-v4-pro---OpenAI",
+      "id": "custom:deepseek-v4-pro---DeepSeek",
       "baseUrl": "https://api.deepseek.com",
       "apiKey": "${DEEPSEEK_API_KEY}",
-      "displayName": "DeepSeek V4 Pro (OpenAI)",
+      "displayName": "DeepSeek V4 Pro [DeepSeek API]",
       "maxOutputTokens": 384000,
-      "noImageSupport": false,
-      "provider": "openai"
+      "noImageSupport": true,
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "deepseek-v4-flash",
-      "id": "custom:deepseek-v4-flash---OpenAI",
+      "id": "custom:deepseek-v4-flash---DeepSeek",
       "baseUrl": "https://api.deepseek.com",
       "apiKey": "${DEEPSEEK_API_KEY}",
-      "displayName": "DeepSeek V4 Flash (OpenAI)",
+      "displayName": "DeepSeek V4 Flash [DeepSeek API]",
       "maxOutputTokens": 384000,
-      "noImageSupport": false,
-      "provider": "openai"
+      "noImageSupport": true,
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "qwen3.6-35b-a3b-apex-262k-rx9070xt-turbo3-coding",
