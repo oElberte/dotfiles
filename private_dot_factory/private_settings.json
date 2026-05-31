@@ -5,44 +5,69 @@
   "logoAnimation": "off",
   "customModels": [
     {
-      "model": "gpt-5.5-low",
-      "id": "custom:gpt-5.5-low---Codex",
-      "displayName": "GPT 5.5 (low)",
+      "model": "gpt-5.5",
+      "id": "custom:gpt-5.5---Codex",
+      "index": 0,
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "openai",
-      "noImageSupport": false
+      "displayName": "GPT 5.5 - Codex",
+      "noImageSupport": false,
+      "provider": "openai"
     },
     {
-      "model": "gpt-5.5-medium",
-      "id": "custom:gpt-5.5-medium---Codex",
-      "displayName": "GPT 5.5 (medium)",
+      "model": "gpt-5.3-codex-spark",
+      "id": "custom:gpt-5.3-codex-spark---Codex",
+      "index": 1,
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "openai",
-      "noImageSupport": false
+      "displayName": "GPT 5.3 Codex Spark - Codex",
+      "noImageSupport": false,
+      "provider": "openai"
     },
     {
-      "model": "gpt-5.5-high",
-      "id": "custom:gpt-5.5-high---Codex",
-      "displayName": "GPT 5.5 (high)",
+      "model": "claude-opus-4-6-thinking",
+      "id": "custom:claude-opus-4-6-thinking---Antigravity",
+      "index": 2,
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "openai",
-      "noImageSupport": false
+      "displayName": "Claude Opus 4.6 Thinking - Antigravity",
+      "noImageSupport": false,
+      "provider": "openai"
     },
     {
-      "model": "gpt-5.5-xhigh",
-      "id": "custom:gpt-5.5-xhigh---Codex",
-      "displayName": "GPT 5.5 (xhigh)",
+      "model": "gemini-3.1-pro-low",
+      "id": "custom:gemini-3.1-pro-low---Antigravity",
+      "index": 3,
       "baseUrl": "http://127.0.0.1:8317/v1",
       "apiKey": "${CODEX_API_KEY}",
-      "provider": "openai",
-      "noImageSupport": false
+      "displayName": "Gemini 3.1 Pro Low - Antigravity",
+      "noImageSupport": false,
+      "provider": "openai"
+    },
+    {
+      "model": "gemini-3.5-flash-low",
+      "id": "custom:gemini-3.5-flash-low---Antigravity",
+      "index": 4,
+      "baseUrl": "http://127.0.0.1:8317/v1",
+      "apiKey": "${CODEX_API_KEY}",
+      "displayName": "Gemini 3.5 Flash Low - Antigravity",
+      "noImageSupport": false,
+      "provider": "openai"
+    },
+    {
+      "model": "gpt-image-2",
+      "id": "custom:gpt-image-2---Codex",
+      "index": 5,
+      "baseUrl": "http://127.0.0.1:8317/v1",
+      "apiKey": "${CODEX_API_KEY}",
+      "displayName": "GPT Image 2 - Codex",
+      "noImageSupport": false,
+      "provider": "openai"
     },
     {
       "model": "deepseek-v4-pro",
       "id": "custom:deepseek-v4-pro---DeepSeek",
+      "index": 6,
       "baseUrl": "https://api.deepseek.com",
       "apiKey": "${DEEPSEEK_API_KEY}",
       "displayName": "DeepSeek V4 Pro [DeepSeek API]",
@@ -53,6 +78,7 @@
     {
       "model": "deepseek-v4-flash",
       "id": "custom:deepseek-v4-flash---DeepSeek",
+      "index": 7,
       "baseUrl": "https://api.deepseek.com",
       "apiKey": "${DEEPSEEK_API_KEY}",
       "displayName": "DeepSeek V4 Flash [DeepSeek API]",
@@ -63,149 +89,84 @@
     {
       "model": "qwen3.6-35b-a3b-apex-262k-rx9070xt-turbo3-coding",
       "id": "custom:qwen3.6-35b-a3b-apex-262k-rx9070xt-turbo3-coding---Local",
-      "displayName": "Qwen 3.6 [RX 9070 XT]",
+      "index": 8,
       "baseUrl": "http://127.0.0.1:8080/v1",
       "apiKey": "dummy",
-      "provider": "generic-chat-completion-api",
+      "displayName": "Qwen 3.6 [RX 9070 XT]",
+      "maxOutputTokens": 64000,
       "noImageSupport": false,
-      "maxOutputTokens": 64000
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "qwen3.6-35b-a3b-apex-262k-rx9070xt-turbo3-coding",
       "id": "custom:qwen3.6-35b-a3b-apex-262k-rx9070xt-turbo3-coding-low---Local",
-      "displayName": "Qwen 3.6 (low) [RX 9070 XT]",
+      "index": 9,
       "baseUrl": "http://127.0.0.1:8080/v1",
       "apiKey": "dummy",
-      "provider": "generic-chat-completion-api",
+      "displayName": "Qwen 3.6 (low) [RX 9070 XT]",
+      "maxOutputTokens": 16384,
       "noImageSupport": false,
-      "maxOutputTokens": 16384
-    },
-    {
-      "model": "deepseek-v4-flash:cloud",
-      "displayName": "DeepSeek V4 Flash [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 65536
-    },
-    {
-      "model": "deepseek-v4-pro:cloud",
-      "displayName": "DeepSeek V4 Pro [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 65536
-    },
-    {
-      "model": "glm-5.1:cloud",
-      "displayName": "GLM 5.1 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "kimi-k2.6:cloud",
-      "displayName": "Kimi K2.6 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "noImageSupport": false,
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "minimax-m2.7:cloud",
-      "displayName": "Minimax M2.7 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "gemma4:31b-cloud",
-      "displayName": "Gemma 4 31B [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "noImageSupport": false,
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "qwen3.5:cloud",
-      "displayName": "Qwen 3.5 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "noImageSupport": false,
-      "maxOutputTokens": 65536
-    },
-    {
-      "model": "qwen3-coder-next:cloud",
-      "displayName": "Qwen 3 Coder Next [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 32768
-    },
-    {
-      "model": "minimax-m2.5:cloud",
-      "displayName": "Minimax M2.5 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "kimi-k2.5:cloud",
-      "displayName": "Kimi K2.5 [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "noImageSupport": false,
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "gpt-oss:120b-cloud",
-      "displayName": "GPT-OSS 120B [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 128000
-    },
-    {
-      "model": "gemini-3-flash-preview:cloud",
-      "displayName": "Gemini 3 Flash Preview [Ollama Cloud]",
-      "baseUrl": "https://ollama.com/v1",
-      "apiKey": "${OLLAMA_CLOUD_API_KEY}",
-      "provider": "generic-chat-completion-api",
-      "maxOutputTokens": 65536
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "qwen3.6-plus",
-      "displayName": "Qwen 3.6 Plus [OpenCode GO]",
+      "id": "custom:Qwen-3.6-Plus-[OpenCode-GO]-0",
+      "index": 10,
       "baseUrl": "https://opencode.ai/zen/go/v1",
       "apiKey": "${OPENCODE_GO_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "displayName": "Qwen 3.6 Plus [OpenCode GO]",
+      "maxOutputTokens": 65536,
       "noImageSupport": false,
-      "maxOutputTokens": 65536
+      "provider": "generic-chat-completion-api"
+    },
+    {
+      "model": "qwen3.7-max",
+      "id": "custom:Qwen-3.7-Max-[OpenCode-GO]-0",
+      "index": 11,
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "apiKey": "${OPENCODE_GO_API_KEY}",
+      "displayName": "Qwen 3.7 Max [OpenCode GO]",
+      "maxOutputTokens": 65536,
+      "noImageSupport": false,
+      "provider": "generic-chat-completion-api"
+    },
+    {
+      "model": "glm-5.1",
+      "id": "custom:GLM-5.1-[OpenCode-GO]-0",
+      "index": 12,
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "apiKey": "${OPENCODE_GO_API_KEY}",
+      "displayName": "GLM 5.1 [OpenCode GO]",
+      "maxOutputTokens": 65536,
+      "noImageSupport": false,
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "mimo-v2.5",
-      "displayName": "Mimo V2.5 [OpenCode GO]",
+      "id": "custom:Mimo-V2.5-[OpenCode-GO]-0",
+      "index": 13,
       "baseUrl": "https://opencode.ai/zen/go/v1",
       "apiKey": "${OPENCODE_GO_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "displayName": "Mimo V2.5 [OpenCode GO]",
+      "maxOutputTokens": 128000,
       "noImageSupport": false,
-      "maxOutputTokens": 128000
+      "provider": "generic-chat-completion-api"
     },
     {
       "model": "mimo-v2.5-pro",
-      "displayName": "Mimo V2.5 Pro [OpenCode GO]",
+      "id": "custom:Mimo-V2.5-Pro-[OpenCode-GO]-0",
+      "index": 14,
       "baseUrl": "https://opencode.ai/zen/go/v1",
       "apiKey": "${OPENCODE_GO_API_KEY}",
-      "provider": "generic-chat-completion-api",
+      "displayName": "Mimo V2.5 Pro [OpenCode GO]",
+      "maxOutputTokens": 128000,
       "noImageSupport": false,
-      "maxOutputTokens": 128000
+      "provider": "generic-chat-completion-api"
     }
-  ]
+  ],
+  "sessionDefaultSettings": {
+    "model": "custom:gpt-5.5---Codex",
+    "reasoningEffort": "high",
+    "autonomyMode": "auto-medium"
+  }
 }

@@ -4,8 +4,8 @@ description: >-
   Executes a reviewed implementation plan. Writes code, runs tests/lint/typecheck,
   fixes failures, and only returns once verification passes. Receives a plan file
   path from the parent agent.
-model: "custom:deepseek-v4-pro[1m]"
-reasoningEffort: max
+model: custom:gpt-5.5---Codex
+reasoningEffort: high
 tools: ["Read", "Grep", "Glob", "LS", "Edit", "Create", "Execute", "WebSearch", "FetchUrl"]
 ---
 

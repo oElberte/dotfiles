@@ -3,8 +3,8 @@ name: mid-dev
 description: >-
   Mid-level developer for routine tasks: simple implementation, testing,
   git operations. Receives scoped tasks from the parent agent.
-model: custom:deepseek-v4-flash
-reasoningEffort: max
+model: custom:claude-opus-4-6-thinking
+reasoningEffort: xhigh
 tools:
   [
     "Read",
