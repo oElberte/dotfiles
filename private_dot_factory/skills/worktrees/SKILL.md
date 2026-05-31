@@ -30,20 +30,19 @@ Skip only when:
 
 Use this priority:
 
-1. Existing `.worktrees/`
-2. Existing `worktrees/`
-3. Repo instruction file preference
-4. Ask the user
+1. Repo-root `.worktrees/` folder.
+2. Repo instruction file preference, only if it explicitly overrides the user's preference.
+3. Ask the user.
 
 For project-local worktree folders, verify they are ignored:
 
 ```bash
-git check-ignore -q .worktrees || git check-ignore -q worktrees
+git check-ignore -q .worktrees
 ```
 
 If not ignored, ask before modifying ignore files. Prefer `.git/info/exclude` for personal-only ignores.
 
-Do not create a project-local worktree until the parent worktree directory is ignored or the user chooses a global path.
+Do not create sibling worktrees next to the repo by default. Do not create a project-local worktree until the `.worktrees/` parent directory is ignored or the user explicitly chooses another path.
 
 ## Creation
 
