@@ -1,8 +1,8 @@
 ---
 name: gpt-scout
-description: GPT 5.5 high read-only scout for scoped codebase exploration, risk discovery, and implementation reconnaissance.
+description: GPT 5.5 xhigh read-only scout for scoped codebase exploration, risk discovery, and implementation reconnaissance.
 model: custom:gpt-5.5---Codex
-reasoningEffort: high
+reasoningEffort: xhigh
 tools: ["Read", "Grep", "Glob", "LS", "Execute"]
 ---
 

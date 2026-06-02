@@ -5,7 +5,7 @@ description: >-
   fixes failures, and only returns once verification passes. Receives a plan file
   path from the parent agent.
 model: custom:gpt-5.5---Codex
-reasoningEffort: high
+reasoningEffort: xhigh
 tools: ["Read", "Grep", "Glob", "LS", "Edit", "Create", "Execute", "WebSearch", "FetchUrl"]
 ---
 

@@ -50,13 +50,13 @@ Never add comments explaining what the code does unless explicitly asked.
 
 ## Adaptive GPT 5.5 quality pipeline
 
-Default posture: keep GPT 5.5 as the main decision-maker, use GPT 5.5 `high`
-for implementation speed, and reserve GPT 5.5 `xhigh` plus Qwen/Gemini jury
-coverage for hard or risky work.
+Default posture: keep GPT 5.5 as the main decision-maker and use GPT 5.5
+`xhigh` for GPT-based chat, scouting, implementation, and review. Qwen/Gemini
+remain independent reviewers for hard or risky work.
 
 ### Effort policy
 
-- Main/coder default: GPT 5.5 `high`.
+- Main/coder/default GPT effort: GPT 5.5 `xhigh`.
 - Expensive gates: GPT 5.5 `xhigh` for plan adjudication, final adjudication,
   hard debugging decisions, and repeated validation failures.
 - Do not use `medium` for code-writing when quality matters. Use it only for
@@ -83,7 +83,7 @@ pipeline`.
      1. `Task(subagent_type="plan-reviewer-gpt", ...)`
      2. `Task(subagent_type="plan-reviewer", ...)` with `mode=standard-gpt-only`
         and only the GPT reviewer report expected.
-     3. `Task(subagent_type="coder", ...)` using GPT 5.5 `high`.
+     3. `Task(subagent_type="coder", ...)` using GPT 5.5 `xhigh`.
      4. `Task(subagent_type="final-reviewer-gpt", ...)`
      5. `Task(subagent_type="final-reviewer", ...)` with
         `mode=standard-gpt-only` and only the GPT reviewer report expected.
@@ -115,7 +115,7 @@ pipeline`.
 
 Use scouts before planning or implementation when the code area is unfamiliar,
 the blast radius is unclear, or the task can be cleanly split across
-subsystems. Scouts are read-only GPT 5.5 `high`; synthesis is GPT 5.5 `xhigh`.
+subsystems. Scouts are read-only GPT 5.5 `xhigh`; synthesis is GPT 5.5 `xhigh`.
 
 - **0 scouts**: trivial/direct tasks.
 - **1 scout**: small task in an unfamiliar area.
