@@ -42,6 +42,16 @@ Never use the word "Claude" in commit messages.
 Use conventional commits standard.
 Commit messages must be in English.
 
+## Worktrees
+
+When using git worktrees, always create them inside the repository root under `.worktrees/`.
+
+- Required path shape: `<repo-root>/.worktrees/<short-name>`.
+- Never create sibling worktrees next to the repo.
+- Never create worktrees in `/tmp`, `$HOME`, a parent workspace, or any external directory.
+- Before creating a worktree, ensure `.worktrees/` is ignored. If it is not ignored, add `.worktrees/` to `<repo-root>/.git/info/exclude`.
+- If `<repo-root>/.worktrees/` cannot be used safely, stop and ask before using any other location or continuing in-place.
+
 ## Code Style
 
 Prefer concise, direct responses — no excessive explanations unless asked.
@@ -198,6 +208,13 @@ Do not force global Flutter/BLoC preferences into repositories that clearly use 
 - Use project `.factory/` only for Factory/Droid configuration, project rules/skills/droids, or local scratch drafts — not canonical repo plans/specs/roadmaps.
 - When a plan or spec is completed, merged, superseded, or no longer active, move it to `docs/plans/old/` or `docs/specs/old/` instead of leaving it in the active folder.
 - Do not permanently delete archived plans/specs unless the user explicitly asks for permanent deletion.
+
+## Screenshots and Visual Test Artifacts
+
+- Save screenshots captured for viewing, testing, or validating apps (including Playwright/browser screenshots) under the repository's `docs/screenshots/` folder.
+- Treat `docs/screenshots/` as local/temporary by default and usually ignore it via the repository's `.git/info/exclude`, not `.gitignore`.
+- Before creating or relying on screenshots, check whether `docs/screenshots/` is already locally excluded; if it is not, confirm with the user before adding the local exclude or keeping screenshot artifacts.
+- Do not commit screenshots unless the user explicitly asks for them to be tracked.
 
 ## Non-Negotiable Engineering Rules
 

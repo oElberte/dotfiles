@@ -28,28 +28,34 @@ Skip only when:
 
 ## Directory choice
 
-Use this priority:
+Always create worktrees inside the repository root under `.worktrees/`.
 
-1. Repo-root `.worktrees/` folder.
-2. Repo instruction file preference, only if it explicitly overrides the user's preference.
-3. Ask the user.
+- Required path shape: `<repo-root>/.worktrees/<short-name>`.
+- Never create sibling worktrees next to the repo.
+- Never create worktrees under `/tmp`, `$HOME`, a parent workspace, or another external directory.
+- If the repo root cannot be determined or `.worktrees/` cannot be used safely, stop and ask before continuing in-place or choosing another path.
 
-For project-local worktree folders, verify they are ignored:
+Before creating the worktree, verify the repo-local folder is ignored:
 
 ```bash
-git check-ignore -q .worktrees
+git -C "<repo-root>" check-ignore -q .worktrees/
 ```
 
-If not ignored, ask before modifying ignore files. Prefer `.git/info/exclude` for personal-only ignores.
+If not ignored, add `.worktrees/` to the repo's local exclude file before creating the worktree:
 
-Do not create sibling worktrees next to the repo by default. Do not create a project-local worktree until the `.worktrees/` parent directory is ignored or the user explicitly chooses another path.
+```bash
+printf '\n.worktrees/\n' >> "<repo-root>/.git/info/exclude"
+```
+
+Do not create the worktree until `.worktrees/` is ignored.
 
 ## Creation
 
 ```bash
 branch="task/short-name"
-path=".worktrees/short-name"
-git worktree add "$path" -b "$branch"
+repo_root="$(git rev-parse --show-toplevel)"
+path="$repo_root/.worktrees/short-name"
+git -C "$repo_root" worktree add "$path" -b "$branch"
 ```
 
 Then work from the worktree path.
@@ -73,13 +79,15 @@ If baseline validation fails, stop and ask whether to continue, investigate, or 
 5. Remove worktree only after user-approved integration or explicit discard:
 
 ```bash
-git worktree remove ".worktrees/short-name"
-git branch -d "task/short-name"
+repo_root="$(git rev-parse --show-toplevel)"
+git -C "$repo_root" worktree remove "$repo_root/.worktrees/short-name"
+git -C "$repo_root" branch -d "task/short-name"
 ```
 
 ## Guardrails
 
-- Never create project-local worktrees in a tracked directory.
+- Never create worktrees outside `<repo-root>/.worktrees/`.
+- Never create worktrees in a tracked directory.
 - Never clean/delete a worktree with uncommitted user work without explicit approval.
 - Never merge without showing status/diff and receiving approval.
 - Do not use worktrees to bypass repo validation.

@@ -37,6 +37,8 @@ Recommend one option and explain why briefly.
 
 ## If using worktrees
 
+Worktree paths must be inside the repo root under `.worktrees/`.
+
 Before cleanup:
 
 1. Confirm worktree has no uncommitted user work.
@@ -44,7 +46,7 @@ Before cleanup:
 3. Remove worktree only after approval.
 
 ```bash
-git worktree remove "<path>"
+git -C "<repo-root>" worktree remove "<repo-root>/.worktrees/<name>"
 git branch -d "<branch>"
 ```
 
