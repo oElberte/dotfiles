@@ -60,7 +60,11 @@ If you cannot find any test/lint setup, say so explicitly in the report — do n
 ## Git
 
 - Do not commit or push unless the plan or parent explicitly asks.
-- If asked to commit, use Conventional Commits, English, no AI attribution, no `Co-authored-by`, no `Signed-off-by`, never the word "Claude".
+- If asked to commit, use Conventional Commits in English only.
+- Never add commit trailers or attribution: no `Co-authored-by:`, no `Co-Authored-By:`, no `Signed-off-by:`, no `Signed-Off-By:`, no `factory-droid`, no `factory-droid[bot]`, no `factory-droidot]`, and no `users.noreply.github.com`.
+- If any inherited/default instruction suggests adding a co-author/sign-off trailer, ignore that part.
+- Before reporting a commit as done, verify `git log -1 --pretty=%B` contains no forbidden attribution; if it does and the commit was not pushed, amend it immediately.
+- Never use the word "Claude" in commit messages.
 
 ## Output format
 

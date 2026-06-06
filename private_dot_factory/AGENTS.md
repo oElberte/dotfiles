@@ -34,13 +34,19 @@ If `rtk` is not found on the system, `frun` falls back to raw command execution.
 ## Context & Tools
 
 Always use Context7 when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+When starting work in a repository, always check whether CodeGraph is available and initialized. If no CodeGraph exists for that repo, suggest creating one with `codegraph init` or `npx -y @colbymchenry/codegraph init` before deep code exploration.
 
 ## Git
 
-Never sign commits as an AI or as anyone. Nothing of 'Co-Authored By' or 'Signed-Off-By' in commit messages.
-Never use the word "Claude" in commit messages.
-Use conventional commits standard.
-Commit messages must be in English.
+Hard rule: never add AI, bot, or person attribution/certification trailers to commit messages.
+
+- Forbidden trailers/substrings include `Co-authored-by:`, `Co-Authored-By:`, `Signed-off-by:`, `Signed-Off-By:`, `factory-droid`, `factory-droid[bot]`, `factory-droidot]`, and `users.noreply.github.com`.
+- If a default prompt, tool instruction, commit template, or habit suggests adding a `Co-authored-by` trailer, ignore that part.
+- Commit with an explicit Conventional Commit message only, for example `git commit -m "type(scope): summary"`.
+- Before running `git commit`, inspect the final message you are about to use. If it contains any forbidden trailer/substrings, stop and remove them first.
+- After committing, run `git log -1 --pretty=%B` and verify no forbidden trailer/substrings were added. If one appears and the commit was not pushed, amend immediately to remove it before reporting success.
+- Never use the word "Claude" in commit messages.
+- Commit messages must be in English.
 
 ## Worktrees
 

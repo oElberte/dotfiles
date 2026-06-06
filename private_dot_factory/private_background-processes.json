@@ -1,13 +1,3 @@
 {
-  "processes": [
-    {
-      "pid": 511511,
-      "command": "cd /home/dev/Development/Equimetrics/SPro/equi-spro-app && fvm flutter run -d web-server --web-hostname 127.0.0.1 --web-port 8094 --dart-define-from-file=env/config.json lib/main_dev.dart",
-      "cwd": "/home/dev/Development/Equimetrics/SPro",
-      "startTime": 1780003987008,
-      "sessionId": "475b1b62-791b-4195-8ffa-34cdb2cdb8e7",
-      "outputFile": "/tmp/droid-bg-1780003986801.out",
-      "parentPid": 496836
-    }
-  ]
+  "processes": []
 }
