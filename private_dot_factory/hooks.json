@@ -1,4 +1,15 @@
 {
+  "UserPromptSubmit": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "/home/dev/.factory/hooks/model-flow-reminder.sh",
+          "timeout": 5
+        }
+      ]
+    }
+  ],
   "Notification": [
     {
       "hooks": [
