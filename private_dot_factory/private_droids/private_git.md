@@ -1,8 +1,8 @@
 ---
-name: git-spark
-description: Small GPT 5.3 Codex Spark helper for git status, diffs, staging plans, commit messages, and branch hygiene.
-model: custom:gpt-5.3-codex-spark---Codex
-reasoningEffort: low
+name: git
+description: Small GPT 5.4 Mini helper for git status, diffs, staging plans, commit messages, and branch hygiene.
+model: custom:gpt-5.4-mini---Codex
+reasoningEffort: medium
 tools: ["Read", "Grep", "Glob", "LS", "Execute"]
 ---
 

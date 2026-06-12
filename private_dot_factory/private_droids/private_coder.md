@@ -2,7 +2,7 @@
 name: coder
 description: Default implementation worker for focused code changes after the approach is clear.
 model: custom:gpt-5.5---Codex
-reasoningEffort: medium
+reasoningEffort: xhigh
 tools: ["Read", "Grep", "Glob", "LS", "Edit", "Create", "Execute"]
 ---
 
